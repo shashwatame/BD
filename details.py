@@ -3,11 +3,10 @@ import plotly.express as px
 import plotly.figure_factory as ff
 import pandas as pd
 import warnings
-import time
 import os
-from pathlib import Path
+import time
 warnings.filterwarnings('ignore')
-
+from pathlib import Path
 
 st.set_page_config(page_title="Maintenance Dashboard-Pack" ,page_icon=":bar_chart:" ,layout="wide")
 
@@ -648,7 +647,8 @@ with tab11:
     else:
         st.plotly_chart(figsm, use_container_width=False)
         with st.expander(":red[**MBD-Details**]"):
-            st.dataframe((df_MBD.set_index(df.columns[0]).sort_values(by=["Shift"], ascending=True)), width=2220, height=300)
+            df_MBDI = df_MBD[["Shift", "Area", "Time", "Description", "Action"]]
+            st.dataframe((df_MBDI.set_index(df.columns[0]).sort_values(by=["Shift"], ascending=True)), width=2220, height=300)
 
 
 with tab12:
@@ -666,9 +666,9 @@ with tab12:
         #st.header(":red[**No-BreakDown-Graph**]")
         st.plotly_chart(figsn, use_container_width=False)
         with st.expander(":red[**NBD-Details**]"):
-            #st.dataframe((NBD.sort_values(by=["Time"], ascending=False)).style.background_gradient(cmap="Blues"), width=200, height=175)
-            st.dataframe((df_NBD.set_index(df.columns[0]).sort_values(by=["Shift"], ascending=True)), width=2220, height=300)
-            #st.table(df_NBD.style.highlight_null(props="color: transparent;"))
+            df_NBDI = df_NBD[["Shift", "Area", "Time", "Description", "Action"]]
+            st.dataframe((df_NBDI.set_index(df.columns[0]).sort_values(by=["Shift"], ascending=True)), width=2220, height=300)
+
 
 with tab13:
     col19, col20 = st.columns([5, 15])
@@ -684,8 +684,8 @@ with tab13:
     else:
         st.plotly_chart(figsr, use_container_width=False)
         with st.expander(":red[**RSD-Details**]"):
-            #st.table(df_RSD.style.highlight_null(props="color: transparent;"))
-            st.dataframe((df_RSD.set_index(df.columns[0]).sort_values(by=["Shift"], ascending=True)), width=2220, height=300)
+            df_RSDI = df_RSD[["Shift", "Area", "Time", "Description", "Action"]]
+            st.dataframe((df_RSDI.set_index(df.columns[0]).sort_values(by=["Shift"], ascending=True)), width=2220, height=300)
 
 with tab14:
     col21, col22 = st.columns([5,5])
@@ -701,8 +701,8 @@ with tab14:
     else:
         st.plotly_chart(figsp, use_container_width=False)
         with st.expander(":red[**POKA-YOKE** **Details**]"):
-            #st.table(df_PK.style.highlight_null(props="color: transparent;"))
-            st.dataframe((df_PK.set_index(df.columns[0]).sort_values(by=["Shift"], ascending=True)), width=2220, height=300)
+            df_PKI = df_PK[["Shift", "Area", "Time", "Description", "Action"]]
+            st.dataframe((df_PKI.set_index(df.columns[0]).sort_values(by=["Shift"], ascending=True)), width=2220, height=300)
 
 
 
