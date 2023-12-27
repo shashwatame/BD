@@ -5,7 +5,7 @@ import pandas as pd
 import warnings
 import time
 import os
-from pathlib import path
+from pathlib import Path
 warnings.filterwarnings('ignore')
 
 
