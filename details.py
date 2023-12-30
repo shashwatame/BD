@@ -10,7 +10,7 @@ from pathlib import Path
 
 st.set_page_config(page_title="Maintenance Dashboard-Pack" ,page_icon=":bar_chart:" ,layout="wide")
 
-#st.title(":bar_chart: :red[Advance Maintenance Dashboard]")
+st.title(":bar_chart: :red[Himanshu Varshney]")
 
 fl = st.file_uploader(":file_folder: Upload a file", type=(["xlsx"]))
 if fl is not None:
