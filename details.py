@@ -12,7 +12,7 @@ st.set_page_config(page_title="Maintenance Dashboard-Pack" ,page_icon=":bar_char
 
 st.title(":bar_chart: :red[AME Dashboard]")
 
-fl = st.file_uploader(":file_folder: Upload a file", type=(["xlsx"]))
+fl = st.file_uploader(":file_folder: Upload a file", type=(["xlsx"]),accept_multiple_files=False)
 if fl is not None:
     filename = fl.name
     st.write(filename)
