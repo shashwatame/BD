@@ -17,6 +17,9 @@ if fl is not None:
     filename = fl.name
     st.write(filename)
     df = pd.read_excel(filename)#,sheet_name=None)
+    with open(os.path.join("tempDir",image_file.name),"wb") as f: 
+        f.write(xlsx_file.getbuffer())         
+        st.success("Saved File")
 else:
    #st.image('group.jpg', caption='Advance Maintenance Engineering')
    exit()
